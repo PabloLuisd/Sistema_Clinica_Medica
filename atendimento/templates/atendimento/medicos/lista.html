@@ -1,0 +1,44 @@
+{% extends 'atendimento/base.html' %}
+
+{% block conteudo %}
+
+<h1>Médicos cadastrados</h1>
+
+<a href="{% url 'criar_medico' %}">Cadastrar médico</a>
+
+<table>
+
+    <tr>
+        <th>Nome</th>
+        <th>Especialidade</th>
+        <th>CRM</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+    </tr>
+
+    {% for medico in medicos %}
+
+    <tr>
+        <td>{{ medico.nome }}</td>
+        <td>{{ medico.especialidade.nome }}</td>
+        <td>{{ medico.crm }}</td>
+        <td>{{ medico.telefone }}</td>
+
+        <td>
+            <a href="{% url 'editar_medico' medico.pk %}">Editar</a>
+
+            <a href="{% url 'excluir_medico' medico.pk %}">Excluir</a>
+        </td>
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="5">Nenhum médico cadastrado.</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'atendimento/base.html' %}
+
+{% block conteudo %}
+
+<h1>Consultas agendadas</h1>
+
+<a href="{% url 'agendar_consulta' %}">
+    Agendar consulta
+</a>
+
+<table>
+
+    <tr>
+        <th>Paciente</th>
+        <th>Médico</th>
+        <th>Especialidade</th>
+        <th>Data</th>
+        <th>Horário</th>
+        <th>Status</th>
+        <th>Alterar status</th>
+    </tr>
+
+    {% for consulta in consultas %}
+
+    <tr>
+        <td>{{ consulta.paciente.nome }}</td>
+        <td>{{ consulta.medico.nome }}</td>
+        <td>{{ consulta.medico.especialidade.nome }}</td>
+        <td>{{ consulta.data|date:"d/m/Y" }}</td>
+        <td>{{ consulta.horario|time:"H:i" }}</td>
+        <td>{{ consulta.status }}</td>
+
+        <td>
+
+            <form method="POST"
+                  action="{% url 'alterar_status_consulta' consulta.pk %}">
+
+                {% csrf_token %}
+
+                <select name="status">
+
+                    {% for valor, rotulo in status_choices %}
+
+                        <option value="{{ valor }}"
+                            {% if consulta.status == valor %}selected{% endif %}>
+                            {{ rotulo }}
+                        </option>
+
+                    {% endfor %}
+
+                </select>
+
+                <button type="submit">Salvar</button>
+
+            </form>
+
+        </td>
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="7">Nenhuma consulta cadastrada.</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'atendimento/base.html' %}
+
+{% block conteudo %}
+
+<h1>Especialidades</h1>
+
+<a href="{% url 'criar_especialidade' %}">
+    Cadastrar especialidade
+</a>
+
+<table>
+
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+    </tr>
+
+    {% for especialidade in especialidades %}
+
+    <tr>
+        <td>{{ especialidade.nome }}</td>
+        <td>{{ especialidade.descricao }}</td>
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="2">Nenhuma especialidade cadastrada.</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

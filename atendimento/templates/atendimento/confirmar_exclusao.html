@@ -1,0 +1,19 @@
+{% extends 'atendimento/base.html' %}
+
+{% block conteudo %}
+
+<h1>{{ titulo }}</h1>
+
+<p>Deseja realmente excluir {{ objeto }}?</p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <button type="submit">Confirmar exclusão</button>
+
+    <a href="{% url voltar_url %}">Cancelar</a>
+
+</form>
+
+{% endblock %}

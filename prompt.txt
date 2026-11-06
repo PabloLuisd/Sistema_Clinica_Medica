@@ -1,0 +1,33 @@
+#Classe 1 — Paciente
+- Nome
+- CPF
+- Data de nascimento
+- Telefone
+Classe 2 — Medico
+- Nome
+- Especialidade
+- CRM
+- Telefone
+Classe 3 — Consulta
+- Paciente
+- Médico
+- Data
+- Horário
+- Status (Agendada, Realizada ou Cancelada)
+Classe 4 — Especialidade
+- Nome
+- Descrição
+Gere o banco dessas models
+
+#Baseado no framework django, crie um arquivo de form.py que recebera os dados acima
+
+#Agora vamos para as views
+
+#Como faço a ligação das urls?
+
+#Vamos para as parte do front end
+
+#raise ImproperlyConfigured(msg.format(name=self.urlconf_name)) from e
+django.core.exceptions.ImproperlyConfigured: The included URLconf '<module 'atendimento.urls' from 'C:\\Users\\Pablo\\Desktop\\Django\\clinica_medica\\atendimento\\urls\\__init__.py'>' does not appear to have any patterns in it. If you see the 'urlpatterns' variable with valid patterns in the file then the issue is probably caused by a circular import.
+
+#gere um readme

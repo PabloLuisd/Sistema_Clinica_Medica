@@ -1,0 +1,29 @@
+{% extends 'atendimento/base.html' %}
+
+{% block conteudo %}
+
+<h1>Bem-vindo ao sistema da clínica</h1>
+
+<p>Escolha uma das opções abaixo:</p>
+
+<div class="menu">
+
+    <a href="{% url 'listar_pacientes' %}">
+        Gerenciar pacientes
+    </a>
+
+    <a href="{% url 'listar_medicos' %}">
+        Gerenciar médicos
+    </a>
+
+    <a href="{% url 'listar_especialidades' %}">
+        Gerenciar especialidades
+    </a>
+
+    <a href="{% url 'listar_consultas' %}">
+        Gerenciar consultas
+    </a>
+
+</div>
+
+{% endblock %}

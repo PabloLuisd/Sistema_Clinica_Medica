@@ -1,0 +1,19 @@
+{% extends 'atendimento/base.html' %}
+
+{% block conteudo %}
+
+<h1>{{ titulo }}</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+
+    <a href="{% url voltar_url %}">Voltar</a>
+
+</form>
+
+{% endblock %}
